@@ -11,7 +11,7 @@
                 this.each(function () {
                     $(this).addClass('countdownHolder');
 
-                    $('<span class="count' + this + '">').html(
+                    $('<span class="count">').html(
                         '<span class="position" data-digit="' +
                         options.start +
                         '">\
