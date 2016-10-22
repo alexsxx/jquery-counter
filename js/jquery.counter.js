@@ -4,7 +4,7 @@
 
         var options = $.extend({
             start: 0
-        }, opts);
+        }, opts || m);
 
         var methods = {
             init: function () {
@@ -21,6 +21,29 @@
 				</span>'
                     ).appendTo($(this));
                 });
+            },
+            set: function (number) {
+                var position = this.find('.position');
+                var digit = position.find('.digit')
+
+                // We are already showing this number
+                if (position.data('digit') == number)
+                    return false;
+
+                position.data('digit', number);
+
+                var replacement = $('<span>', {
+                    'class': 'digit',
+                    css: {
+                        top: 0,
+                        opacity: 1
+                    },
+                    html: number
+                });
+
+                digit.before(replacement);
+
+                digit.remove();
             },
             increment: function (number, callback) {
 
